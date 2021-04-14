@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'constants.dart';
-import 'transition_route_observer.dart';
+import 'Common/constants.dart';
+import 'Common/transition_route_observer.dart';
 import 'widgets/fade_in.dart';
 
 class DashboardScreen extends StatefulWidget {

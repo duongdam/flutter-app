@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Screens/LoginScreen/login_screen.dart';
+import '../Screens/LoginScreen/login_screen.dart';
 
 class FadePageRoute<T> extends MaterialPageRoute<T> {
   FadePageRoute({
