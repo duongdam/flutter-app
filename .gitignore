@@ -8,7 +8,9 @@
 .buildlog/
 .history
 .svn/
-
+.dart_tool
+.idea
+build
 # IntelliJ related
 *.iml
 *.ipr
