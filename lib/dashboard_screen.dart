@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 import 'Common/constants.dart';
 import 'Common/transition_route_observer.dart';
 import 'widgets/fade_in.dart';
 
 class DashboardScreen extends StatefulWidget {
-  static const routeName = '/dashboard';
+  static const routeName = '/home';
 
   @override
   _DashboardScreenState createState() => _DashboardScreenState();
@@ -16,7 +17,7 @@ class _DashboardScreenState extends State<DashboardScreen>
     with SingleTickerProviderStateMixin, TransitionRouteAware {
   Future<bool> _goToLogin(BuildContext context) {
     return Navigator.of(context)
-        .pushReplacementNamed('/')
+        .pushReplacementNamed('/login')
         // we dont want to pop the screen, just replace it completely
         .then((_) => false);
   }
@@ -25,6 +26,10 @@ class _DashboardScreenState extends State<DashboardScreen>
   static const headerAniInterval = Interval(.1, .3, curve: Curves.easeOut);
   late Animation<double> _headerScaleAnimation;
   AnimationController? _loadingController;
+
+  Future _handleSignOut() async {
+    Get.toNamed('/login');
+  }
 
   @override
   void initState() {
@@ -68,7 +73,7 @@ class _DashboardScreenState extends State<DashboardScreen>
     final signOutBtn = IconButton(
       icon: const Icon(FontAwesomeIcons.signOutAlt),
       color: theme.accentColor,
-      onPressed: () => _goToLogin(context),
+      onPressed: () => _handleSignOut(),
     );
     final title = Center(
       child: Row(
@@ -130,33 +135,7 @@ class _DashboardScreenState extends State<DashboardScreen>
             child: Stack(
               children: <Widget>[
                 Column(
-                  children: <Widget>[
-                    // Expanded(
-                    //   flex: 2,
-                    //   child: _buildHeader(theme),
-                    // ),
-                    // Expanded(
-                    //   flex: 8,
-                    //   child: ShaderMask(
-                    //     // blendMode: BlendMode.srcOver,
-                    //     shaderCallback: (Rect bounds) {
-                    //       return LinearGradient(
-                    //         begin: Alignment.topLeft,
-                    //         end: Alignment.bottomRight,
-                    //         tileMode: TileMode.clamp,
-                    //         colors: <Color>[
-                    //           Colors.deepPurpleAccent.shade100,
-                    //           Colors.deepPurple.shade100,
-                    //           Colors.deepPurple.shade100,
-                    //           Colors.deepPurple.shade100,
-                    //           // Colors.red,
-                    //           // Colors.yellow,
-                    //         ],
-                    //       ).createShader(bounds);
-                    //     },
-                    //   ),
-                    // ),
-                  ],
+                  children: <Widget>[],
                 ),
               ],
             ),

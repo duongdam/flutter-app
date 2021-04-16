@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 import 'Screens/LoginScreen/login_screen.dart';
 import 'dashboard_screen.dart';
@@ -17,8 +18,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Login Demo',
+    return GetMaterialApp(
+      title: 'Flutter App ClassFunc',
       theme: ThemeData(
         // brightness: Brightness.dark,
         primarySwatch: Colors.cyan,
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
           overline: TextStyle(fontFamily: 'NotoSans'),
         ),
       ),
-      home: LoginScreen(),
+      home: DashboardScreen(),
       // navigatorObservers: [TransitionRouteObserver()],
       initialRoute: LoginScreen.routeName,
       routes: {
